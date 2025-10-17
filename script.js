@@ -1,10 +1,11 @@
 const notifyModal = document.getElementById("notifyModal");
 const successModal = document.getElementById("successModal");
 const notifyCloseBtn = document.querySelector(".notify-close");
+const successCloseBtn = document.querySelector(".success-close");
 const notifyButtons = document.querySelectorAll(".notify-btn");
 const toolNameSpan = document.getElementById("toolName");
 const notifyForm = document.getElementById("notifyForm");
-const closeSuccessBtn = document.getElementById("closeSuccessBtn");
+
 
 // Open notify modal
 notifyButtons.forEach(button => {
@@ -18,6 +19,7 @@ notifyButtons.forEach(button => {
 
 // Close notify modal
 notifyCloseBtn.onclick = () => notifyModal.classList.remove("show-modal");
+successCloseBtn.onclick = () => successModal.classList.remove("show-modal");
 window.onclick = (e) => {
     if (e.target === notifyModal) notifyModal.classList.remove("show-modal");
     if (e.target === successModal) successModal.classList.remove("show-modal");
@@ -49,10 +51,4 @@ notifyForm.onsubmit = (e) => {
     // Close notify modal and open success modal
     notifyModal.classList.remove("show-modal");
     successModal.classList.add("show-modal");
-};
-
-// Close success modal
-closeSuccessBtn.onclick = () => {
-    successModal.classList.remove("show-modal");
-    window.location.href = window.location.pathname;
 };
